@@ -5,11 +5,12 @@
     </div>
     <div class="m-nav01" ref="m-nav">
       <div :class="['nav-wrap', fixed?'navFix':'']">
-        <ul class="menuList clearfix" @click="handleClickMenu">
-          <li id="zx"><a class="active" href="#modular-zx">专线</a></li>
-          <li id="ict"><a href="#modular-ict">ICT</a></li>
-          <li id="yw"><a href="#modular-yw">云网</a></li>
-          <li id="5g"><a href="#modular-5g">5G</a></li>
+        <ul class="menuList clearfix">
+          <li v-for="(value, key) in anchorList" @click="e => handleClickMenu(e, key)" :key="key"><a>{{value}}</a></li>
+          <!--<li id="zx"><a class="active">专线</a></li>-->
+          <!--<li id="ict"><a>ICT</a></li>-->
+          <!--<li id="yw"><a>云网</a></li>-->
+          <!--<li id="5g"><a>5G</a></li>-->
         </ul>
       </div>
     </div>
@@ -46,10 +47,17 @@ export default {
   },
   data() {
     return {
-      fixed: false
+      fixed: false,
+      anchorList: {
+        'modular-zx': '专线',
+        'modular-ict': 'ICT',
+        'modular-yw': '云网',
+        'modular-5g': '5G',
+      }
     }
   },
   mounted() {
+    document.getElementsByClassName('menuList')[0].firstChild.firstChild.classList.add('active')
     const navHeight = this.$refs['m-nav'].offsetTop
     window.addEventListener('scroll', () => {
       if (window.pageYOffset > navHeight) {
@@ -60,12 +68,14 @@ export default {
     })
   },
   methods: {
-    handleClickMenu(e) {
-      console.log(document.getElementsByClassName('menuList')[0].childNodes)
+    handleClickMenu(e, key) {
       document.getElementsByClassName('menuList')[0].childNodes.forEach(item => {
         item.firstChild.classList.remove('active')
       })
       e.srcElement.classList.add('active')
+      let scrollHeight = document.getElementById(key).offsetTop
+      console.log(scrollHeight)
+      window.scrollTo({top: scrollHeight - 50, behavior: 'smooth'})
     },
     handleSubmit() {
       const specialForm = this.$refs.specialForm
