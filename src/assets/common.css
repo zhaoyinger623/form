@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+/* base
+-------------------------------*/
+* {
+    padding: 0;
+    margin: 0;
+}
+[v-cloak] {
+    display: none;
+}
+ul,li {
+    list-style: none;
+}
+a { text-decoration: none;}
+body {
+    font-size: 14px;
+    font-family: "微软雅黑", sans-serif;
+    color: #666;
+    min-width: 1200px;
+    background: #f0f2f5;
+    -webkit-font-smoothing: antialiased;
+}
+.clearfix:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear:both;
+    visibility: hidden;
+}
+.clearfix {
+    *zoom: 1;
+}
+
+/* base end
+-------------------------------*/
+.m-modular01 { background: #fff; margin-top: 16px; border-radius: 2px;}
+.modular-tit01 { height: 49px; line-height: 49px; border-bottom: 1px solid #eee; padding: 0 16px;}
+.modular-tit01 h5 { font-size: 16px; font-weight: 500; color: #333; display: inline-block;}
+.m-nav01 { padding: 0 16px; margin-top: 22px; height: 40px; position: relative;}
+.nav-wrap { height: 40px; background: #fff;}
+.nav-wrap.navFix { position: fixed; top: 0; left: 32px; right: 32px; z-index: 999;}
+.m-nav01 ul { border-bottom: 1px solid #eee;}
+.m-nav01 li a { float: left; border-top: 1px solid #eee; border-right: 1px solid #eee; height: 38px; line-height: 38px; position: relative; padding: 0 36px; color: #333;}
+.m-nav01 li:first-child a{ border-radius: 4px 0 0 0; border-left: 1px solid #eee;}
+.m-nav01 li:last-child a{ border-radius: 0 4px 0 0;}
+.m-nav01 li a.active:after { content: ""; position: absolute; left: 0; bottom: -1px; right: 0; height: 1px; background: #fff; }
+.m-nav01 li a.active{ color: #1890ff;}
+.modular-con01 { margin-top: 16px; padding: 0 16px;}
+.sml-tit01 { color: #333; padding-left: 11px; line-height: 16px; position: relative;}
+.sml-tit01:before { content: ""; position: absolute; left: 0; top: 1px; height: 14px; width: 3px; background: #1890ff;}
+.modular-box01 { border: 1px solid #eee; border-radius: 4px; margin-top: 15px;}
+.m-top01 { padding: 15px 16px; background: #fafafa; border-bottom: 1px solid #eee;}
+.top-tit01 { font-weight: 500; font-size: 16px; color: #333; line-height: 16px;}
+.top-info01 { line-height: 18px; margin-top: 14px;}
+.line01 { color: #ccc; margin: 0 4px;}
+.form{width: 1000px;margin: 10px auto;}
+.form-container{}
+.operation-button{display: flex; justify-content: center;margin-top: 20px;}
+.el-button{border-radius: 0; width: 95px}
